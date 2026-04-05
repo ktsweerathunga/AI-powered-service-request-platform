@@ -7,7 +7,7 @@ import axios from 'axios';
 import { API_URL } from '../config';
 import { scale, verticalScale, moderateScale } from '../utils/scaling';
 
-export default function SubmitScreen() {
+export default function SubmitScreen({ navigation }: any) {
   const [formData, setFormData] = useState({ title: '', description: '', location: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -48,9 +48,10 @@ export default function SubmitScreen() {
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
               setIsSuccess(false); 
+              navigation.navigate('Dashboard');
             }}
           >
-            <Text style={styles.primaryButtonText}>New Request</Text>
+            <Text style={styles.primaryButtonText}>View Dashboard</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

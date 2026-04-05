@@ -54,14 +54,14 @@ if (MONGODB_URI === "your_mongodb_connection_string_here") {
 mongoose.connect(MONGODB_URI)
   .then(() => {
     console.log(`Connected to MongoDB at ${MONGODB_URI}`);
-    httpServer.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+    httpServer.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on port ${PORT} across all network interfaces`);
     });
   })
   .catch((error) => {
     console.error('MongoDB connection error:', error.message);
     // Continue running server even if DB connection fails to allow basic ping
-    httpServer.listen(PORT, () => {
-      console.log(`Server running on port ${PORT} (Running without DB)`);
+    httpServer.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on port ${PORT} (Running without DB) across all network interfaces`);
     });
   });
