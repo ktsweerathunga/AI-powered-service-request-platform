@@ -1,4 +1,4 @@
-import { Platform } from 'react';
+// React Native config
 
 // Use local IP for physical device or emulator access to local network
 // Replace the IP below with your actual machine's local IP if it changes.

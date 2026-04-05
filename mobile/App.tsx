@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home, PlusCircle, LayoutDashboard } from 'lucide-react-native';
@@ -11,7 +12,8 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
@@ -39,6 +41,7 @@ export default function App() {
         <Tab.Screen name="Submit" component={SubmitScreen} />
         <Tab.Screen name="Dashboard" component={DashboardScreen} />
       </Tab.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
